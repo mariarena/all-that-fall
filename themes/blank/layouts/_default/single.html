@@ -1,26 +1,6 @@
 {{ define "main" }}
 <div class="single-template">
-	{{ partial "menu-column.html" .}}
 
-
-	<div class="single-content {{.Type}}">
-		<div class="inner-single">
-			<h1>{{ .Title }}</h1>
-			{{ .Content }}
-			{{$corr := ""}}
-			{{range  .Params.correlati}}
-				{{$corr = .}}
-			{{end}}
-			{{ if ne $corr ""}}
-				<h2>Correlati:</h2>
-					{{range  .Params.correlati}}
-					{{ partial "single/correlated.html" .}}
-				{{end}}
-			{{end}}
-			
-			
-		</div>
-	</div>
 
 </div>
 

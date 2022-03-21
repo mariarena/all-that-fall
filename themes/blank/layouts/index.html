@@ -1,85 +1,208 @@
 {{ define "main" }}
-{{ partial "header_form" . }}
 <main class="home-template homepage">
-	<div class="left-column col fake_class again " >
-		<div id="left_first">
-			{{ range  (where .Site.Pages "Params.colonna" "sinistra") }}
-			{{partial "conditional/conditional.html" .}}
-		{{ end }}
-		</div>
-		<span class="helper-arrow">&#8595;</span>
-	</div>
-	
-	<div class="center-column col">
-		{{ partial "menu-column.html" .}}
-	</div>
-	<div class="right-column col ">
-		{{$id := ""}}
-		{{ range first 1  ( where (where .Site.Pages "Params.colonna" "destra" ) "Params.evidenza" "==" true )}}
-			{{$id = .Permalink}}
-			{{partial "conditional/conditional.html" .}}
-		{{end}}
+	<div id="container">
+		<main class="content" id="content" role="main">
+			<!-- background -->
+			<div class="background"
+				style="background-image:url('https://www.michelangeloalesi.it/all-that-fall/wp-content/themes/all-that-fall/assets/bg/11.jpg')">
 
-
-		<div id="right_two">
-					{{ range first 1  ( where (where .Site.Pages "Params.colonna" "destra") "Permalink" "!=" $id )}}
-						{{partial "conditional/conditional.html" .}}
-					{{ end }}
-
-				{{ range first 1 ( after 2 ( where (where .Site.Pages "Params.colonna" "destra") "Permalink" "!=" $id ) )}}
-					{{partial "conditional/conditional.html" .}}
-				{{ end }}
-
-					{{ range first 1 (after 1 ( where (where .Site.Pages "Params.colonna" "destra") "Permalink" "!=" $id ))}}
-						{{partial "conditional/conditional.html" .}}
-					{{ end }}
-				<div class="default-box" style="padding:1rem">
-						<span class="type-box">
-							{{.Site.Data.offertaformativa.scadenza.tag}}
-						</span>
-						<div class="inner" style="height: 90%;">
-							<data id="scadenza-date">{{.Site.Data.offertaformativa.scadenza.date}}</data>
-							<div id="countdown_two" class="default-title"></div>
-							<span class="countdown-subtitle">{{.Site.Data.offertaformativa.scadenza.title}}</span> 
+			</div>
+			<!-- video left -->
+			<div class="video-container">
+				<!-- <iframe allow="fullscreen" id="ytplayer" type="text/html" width="640" height="360"
+	  src="http://www.youtube.com/embed/sAGWdsrq_E4?autoplay=1&mute=1&loop=1&playlist=sAGWdsrq_E4"
+	  frameborder="0"></iframe> -->
+				<iframe id="ytplayer"
+					src="https://player.vimeo.com/video/689964370?autoplay=1&amp;loop=1&amp;autopause=0&amp;muted=1&amp;color=ff0000&amp;title=0&amp;byline=0&amp;portrait=0"
+					width="640" height="360" frameborder="0" allow="autoplay; fullscreen" allowfullscreen=""></iframe>
+				<div class="countdown-container">
+					<div id="countdown">
+						<div>
+							<div class="title">days</div>
+							<div id="day-container">54</div>
 						</div>
+						<div id="rest-container">
+							<div class="title">hours</div>
+							<div id="hours-container">23:15:22</div>
+						</div>
+					</div>
 				</div>
-				<script>
-					var enddate = document.querySelector("#scadenza-date").innerText
-					enddate = enddate.substring(0,10)
-					var end = new Date(enddate).getTime();
-						var _second = 1000;
-						var _minute = _second * 60;
-						var _hour = _minute * 60;
-						var _day = _hour * 24;
-						var timer;
-					
-						function showRemaining() {
-							var now = new Date().getTime();
-							var distance = end - now;
-							if (distance < 0) {
-					
-								clearInterval(timer);
-								document.getElementById('countdown_two').innerHTML = 'Iscrizioni concluse';
-					
-								return;
-							}
-							var days = Math.floor(distance / _day);
-							document.getElementById('countdown_two').innerHTML ="-" + days + '<br>giorni ';
-							
-						}
-						showRemaining();
-						timer = setInterval(showRemaining, 60000);
-					</script>
-					
-	
-			{{ range  (after 3 ( where (where .Site.Pages "Params.colonna" "destra") "Permalink" "!=" $id ) )}}
-				{{partial "conditional/conditional.html" .}}
-			{{ end }}
-		</div>
+			</div> <!-- tapis left -->
+			<div class="tapis-container"
+				style="background-image: url(https://www.michelangeloalesi.it/all-that-fall/wp-content/themes/all-that-fall/assets/tapis.png)">
+				<!-- controls -->
+				<div id="controlbuttons">
+					<button class="pushable red" onclick="stoptreadmill();">
+						<span class="front">
+							Stop
+						</span>
+					</button>
+					<button class="pushable green" onclick="gotreadmill();">
+						<span class="front">
+							Go
+						</span>
+					</button>
+				</div>
+				<div class="tapis-entry-container">
+
+					<!-- Swiper -->
+					<div class="swiper-container">
+						{{ range .Site.RegularPages }}
+						<div class="tapis-entry c-carousel-item swiper-slide swiper-slide-duplicate">
+							{{ .Title }}
+						</div>
+						{{ end }}
+						
+					</div>
 
 
-		
-		<span class="helper-arrow">&#8595;</span>
+				</div>
+			</div>
+			<!-- popup about -->
+			<div class="popupwrapper" id="popupabout">
+				<div class="popupcontainer">
+					<!-- wp:paragraph -->
+					<p><br>Posate lucenti su una candida tovaglia, adagiate al loro posto da mani sicure.<br>Tutto
+						intorno il resto precipita, cadenzato dalla ronzante voce canzonatoria di una
+						volontà<br>intangibile. Ogni barlume è una copia, ogni tintinnio è una distrazione.<br>In una
+						cornice di minuterie replicabili e triviali, cosa resta del perpetuo fervore?</p>
+					<!-- /wp:paragraph -->
+
+					<!-- wp:paragraph -->
+					<p>.<br></p>
+					<!-- /wp:paragraph -->
+
+					<!-- wp:paragraph -->
+					<p>All that fall è la seconda parte di un progetto dove si riflette sulla città e sul senso
+						dell’abitare.<br>Il progetto risente di questa sospensione di ogni giudizio sulla natura delle
+						cose, derivata<br>dall'estrema fragilità della realtà infettata. Seconda parte che tratta del
+						cadere. Dentro uno<br>spazio vuoto, forse un teatro, un cameriere si occupa di provare a
+						rimettere in ordine le cose in<br>sola compagnia o assillo di un esuberante cam girl. Un aspetto
+						comune di molti spettacoli<br>realizzati dalla scuola di scenografia è il rapporto che esiste
+						tra la “machina” scenica e<br>spettatore. Un crash test impegnativo per tutti. </p>
+					<!-- /wp:paragraph -->
+
+					<!-- wp:paragraph -->
+					<p>.</p>
+					<!-- /wp:paragraph -->
+
+					<!-- wp:paragraph -->
+					<p>Più che inseguire il coinvolgimento della<br>partecipazione, questa ricerca ha assunto nel tempo
+						il compito di misurare con attenzione<br>l’avvenimento inatteso che interrompe il corso regolare
+						di un’azione. Mai come in questo<br>periodo i teatri sono finiti in televisione.
+						Indipendentemente dall’opera che veniva messa in<br>scena; il vuoto a norma di legge ha
+						trasformato la retorica accogliente di questi luoghi in<br>allegorie indefinite ed eloquenti di
+						questa interminabile interruzione dalla vita. Per questo<br>abbiamo chiesto e ottenuto di
+						mettere in scena il nostro lavoro dentro un teatro, per guardare<br>tutti assieme di un corpo e
+						di oggetti che scendono verso il basso mossi dal proprio peso,<br>dentro il teatro della città
+						ideale. È la prima volta che accade qui a Urbino.</p>
+					<!-- /wp:paragraph -->
+
+					<!-- wp:paragraph -->
+					<p>.</p>
+					<!-- /wp:paragraph -->
+
+					<!-- wp:paragraph -->
+					<p>Accademia di Belle Arti. Urbino<br>TeatrOltre 2022<br>Progetto scene, costumi, luci, video e
+						audio<br>scuola di Scenografia<br>Spettacolo allestito in collaborazione con il Comune di Urbino
+					</p>
+					<!-- /wp:paragraph -->
+
+					<!-- wp:paragraph -->
+					<p>.</p>
+					<!-- /wp:paragraph -->
+
+					<!-- wp:paragraph -->
+					<p>Drammaturgia di Maria Arena<br>Drammaturgia Video Emanuele Rebecchini</p>
+					<!-- /wp:paragraph -->
+
+					<!-- wp:paragraph -->
+					<p>.</p>
+					<!-- /wp:paragraph -->
+
+					<!-- wp:paragraph -->
+					<p>Date e orario spettacoli<br>14 maggio sabato ore 17:30, ore 21:00<br>15 maggio domenica ore
+						17:30.</p>
+					<!-- /wp:paragraph -->
+
+					<!-- wp:paragraph -->
+					<p>.</p>
+					<!-- /wp:paragraph -->
+
+					<!-- wp:paragraph -->
+					<p><a href="https://www.amatmarche.net/" target="_blank"
+							rel="noreferrer noopener">https://www.amatmarche.net/</a></p>
+					<!-- /wp:paragraph -->
+
+					<!-- wp:paragraph -->
+					<p>.</p>
+					<!-- /wp:paragraph -->
+
+					<!-- wp:group -->
+					<div class="wp-block-group">
+						<!-- wp:paragraph -->
+						<p><a href="http://www.comune.urbino.pu.it/" target="_blank"
+								rel="noreferrer noopener">http://www.comune.urbino.pu.it/</a></p>
+						<!-- /wp:paragraph -->
+
+						<!-- wp:paragraph -->
+						<p>.</p>
+						<!-- /wp:paragraph -->
+					</div>
+					<!-- /wp:group -->
+
+					<!-- wp:group -->
+					<div class="wp-block-group">
+						<!-- wp:paragraph -->
+						<p><a href="https://www.accademiadiurbino.it/" target="_blank"
+								rel="noreferrer noopener">https://www.accademiadiurbino.it/</a></p>
+						<!-- /wp:paragraph -->
+
+						<!-- wp:paragraph -->
+						<p>.</p>
+						<!-- /wp:paragraph -->
+					</div>
+					<!-- /wp:group -->
+
+					<!-- wp:group -->
+					<div class="wp-block-group">
+						<!-- wp:paragraph -->
+						<p><a href="https://scuoladiscenografia.net/" target="_blank"
+								rel="noreferrer noopener">https://scuoladiscenografia.net/</a></p>
+						<!-- /wp:paragraph -->
+
+						<!-- wp:paragraph -->
+						<p>.</p>
+						<!-- /wp:paragraph -->
+					</div>
+					<!-- /wp:group -->
+
+					<!-- wp:group -->
+					<div class="wp-block-group">
+						<!-- wp:paragraph -->
+						<p><a href="https://www.facebook.com/scuoladiscenografiaurbino" target="_blank"
+								rel="noreferrer noopener">https://www.facebook.com/scuoladiscenografiaurbino</a></p>
+						<!-- /wp:paragraph -->
+
+						<!-- wp:paragraph -->
+						<p>.</p>
+						<!-- /wp:paragraph -->
+					</div>
+					<!-- /wp:group -->
+
+					<!-- wp:group -->
+					<div class="wp-block-group">
+						<!-- wp:paragraph -->
+						<p><a href="https://www.instagram.com/scuola_di_scenografia_urbino/" target="_blank"
+								rel="noreferrer noopener">https://www.instagram.com/scuola_di_scenografia_urbino/</a>
+						</p>
+						<!-- /wp:paragraph -->
+					</div>
+					<!-- /wp:group -->
+				</div>
+			</div>
+
+		</main>
 	</div>
 </main>
 {{ end }}
