@@ -1,7 +1,7 @@
 
 @font-face {
     font-family: "wwDigital";
-    src: url("assets/wwDigital.ttf") format("truetype");
+    src: url("/assets/wwDigital.ttf") format("truetype");
   }
   
   html,
@@ -431,6 +431,7 @@
     place-content: center;
     z-index: 99;
     top: 0;
+    left: 0;
   }
   .popupwrapper.__show {
     display: grid;

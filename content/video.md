@@ -1,5 +1,6 @@
 ---
 title: Candidatura ricevuta
+videourl: https://player.vimeo.com/video/689964370?autoplay=1&loop=1&autopause=0&muted=1&color=ff0000&title=0&byline=0&portrait=0
 ---
 
 

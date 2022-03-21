@@ -15,24 +15,24 @@
 <meta property="og:determiner" content="the" />
 <meta property="og:locale" content="it" />
 <meta property="og:site_name" content="All that fall" />
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>{{ .Title }} — {{ .Site.Params.metatitle }}</title>
-	{{ with .Site.Params.description }}
-	<meta name="description" content="{{ . }}">
-	{{ end }}
-	{{ with .Site.Params.author }}
-	<meta name="author" content="{{ . }}">
-	{{ end }}
-	
-	<link rel="stylesheet" href="{{ "css/style.css"   | relURL }}?{{now.Unix}}">
-	<link rel="stylesheet" href="{{ "css/simple-lightbox.min.css"  | relURL }}">
-	{{ with .OutputFormats.Get "RSS" -}}
-	{{ printf `
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<title>{{ .Title }} — {{ .Site.Params.metatitle }}</title>
+{{ with .Site.Params.description }}
+<meta name="description" content="{{ . }}">
+{{ end }}
+{{ with .Site.Params.author }}
+<meta name="author" content="{{ . }}">
+{{ end }}
+
+<link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
+<link rel="stylesheet" href="{{ "css/style.css"   | relURL }}?">
+<link rel="stylesheet" href="{{ "css/simple-lightbox.min.css"  | relURL }}">
+{{ with .OutputFormats.Get "RSS" -}}
+{{ printf `
 	<link rel="%s" type="%s" href="%s" title="%s">` .Rel .MediaType.Type .RelPermalink $.Site.Title | safeHTML }}
 	{{- end }}
 	<script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
-	<meta name="facebook-domain-verification" content="x47pldimecews3wtz3ipek4q5n6a4a" />
-
+	
 </head>
 
 <body>
@@ -52,8 +52,7 @@
 		});
 	}
 </script>
-
-<script src="{{ "js/simple-lightbox.min.js" | relURL }}"></script>
-<script src="{{ "js/script.js"   | relURL }}?{{now.Unix}}" ></script>
+<script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+<script src="{{ "js/script.js"   | relURL }}?" ></script>
 
 </html>

@@ -1,6 +1,6 @@
 backend:
   name: git-gateway
-  branch: main # Branch to update (optional; defaults to master)
+  branch: master # Branch to update (optional; defaults to master)
 
 local_backend: true
 
@@ -20,10 +20,14 @@ collections:
     fields: # The fields for each document, usually in front matter
       - { label: "Title", name: "title", widget: "string" }
       - { label: "Publish Date", name: "date", widget: "datetime" }
-      - {label: "Colonna", name: "colonna", widget: "select", options : [{ label: "Colonna Sinistra", value: "sinistra" },{ label: "Colonna Destra", value: "destra" }] }
-      - {label: "In Evidenza", name: "evidenza", widget: "boolean", default: false, required: false}
-      - { label: "Immagine di copertina", name: "cover", widget: "image" }
-      - { label: "Sottotitolo", name: "subtitle", widget: "string" }
-      - { label: "Link per Video", name: "videourl", widget: "string"}
       - { label: "Body", name: "body", widget: "markdown" }
-  
+  - label: "Pages"
+    name: "pages"
+    files:
+      - label: "Popup Page"
+        name: "popup"
+        file: "/content/popup.md"
+        fields:
+          - { label: "Publish Date", name: "date", widget: "datetime" }
+          - { label: "Body", name: "body", widget: "markdown" }
+        
