@@ -1,0 +1,55 @@
+<header class="sticky">
+    <div class="responsive-menu" id="responsive-menu">
+        <div class="ag responsive-menu-logo">
+            <a href="{{.Site.Home.Permalink}}">
+                <img src="{{ "/logo.svg" |relURL}}" />
+            </a>
+        </div>
+        <nav class="responsive-main-menu d-f-col">
+
+            <div class="f-1" style="line-height: 1;">
+                <strong class="cta" style="color: black;">
+                    iscriviti:
+                </strong>
+                <br>
+            </div>
+            <div class="f-1">
+                <p class="cta-sub">TECNICI SUPERIORI DEL SISTEMA AGROALIMENTARE</p class="cta-sub">
+            </div>
+            <div class="f-1 d-f " style="line-height: 1;align-items: flex-end;">
+                {{ with .Site.GetPage "/offerta-formativa/corsi-21-23.md" }}                
+                    <div class="f-1"><a style="font-size: .85rem;" target="_blank" href="{{.RelPermalink}}"><strong>⟶{{ .Title }}</strong></a>
+                    </div>
+                {{end}}
+                
+            </div>
+            <div class="f-1 d-f " style="line-height: 1;align-items: flex-end;">
+                
+                <div class="f-1"><a style="font-size: .85rem;" target="_blank" href="{{.Site.Data.offertaformativa.modulopdf.file}}"><strong>⟶{{.Site.Data.offertaformativa.modulopdf.title}}</strong></a>
+                    </div>
+                
+            </div>
+            <div class="f-1 d-f " style="line-height: 1;">
+                <div class="f-1"><a style="font-size: .85rem;"  href="{{ with .Site.GetPage "/contatti.md" }}{{.Permalink}}{{end}}"><strong> ⟶ candidati online</strong></a></div>
+
+            </div>
+        </nav>
+    </div>
+</header>
+<div class="offerta-formativa-box offerta-formativa-responsive-topbox ">
+    {{ with .Site.GetPage "/offerta-formativa/corsi-21-23.md" }}
+    <span class="type-box">
+        {{.Type | humanize | lower }}
+    </span>
+    <div class="inner-menu-column">
+        <a href="{{ .RelPermalink }}">
+        <h2 class="offerta-formativa-title">
+            {{ .Title }}
+        </h2>
+        <span class="offerta-formativa-subtitle">
+            {{.Params.Subtitle}}
+        </span>
+        </a>
+    </div>
+    {{ end }}
+</div>

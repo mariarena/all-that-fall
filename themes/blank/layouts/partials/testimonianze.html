@@ -1,0 +1,18 @@
+<div class="testimonianze-box default-box">
+    <span class="type-box">
+        {{ .Type }}
+    </span>
+    <div class="inner">
+        <a href="{{ with .Site.GetPage "/offerta-formativa/testimonianze.md" }}{{ .RelPermalink }}{{end}}">
+        <p class="testimonianze-excerpt">
+            {{ .Params.excerpt}}
+        </p>
+            <h2 class="testimonianze-title">
+                {{.Title}}
+            </h2>
+            <small class="notizie-subtitle">
+                {{ .Params.subtitle}}
+            </small>
+        </a>
+    </div>
+</div>

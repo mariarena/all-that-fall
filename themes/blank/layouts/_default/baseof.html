@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="{{ .Site.LanguageCode | default " en-us" }}">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="shortcut icon" href="/favicon/favicon.ico" type="image/x-icon">
+	<link rel="icon" href="/favicon/favicon.ico" type="image/x-icon">
+	<meta property="og:title" content="All that fall" />
+	<meta property="og:url" content="https://itsteramo.it/orientamento-21-23" />
+	<meta property="og:image" content="https://itsteramo.it/og/itsteramo-its-your-future.png" />
+<meta property="og:description" 
+  content="L’ITS Agroalimentare di Teramo è un polo d’eccellenza impegnato nella formazione Post Diploma, è parte integrante della Rete Nazionale degli Istituti Tecnici superiori riconosciuti dal MIUR, della Rete  Agri ITS e del Sistema ITS Abruzzo.
+  " />
+<meta property="og:determiner" content="the" />
+<meta property="og:locale" content="it" />
+<meta property="og:site_name" content="All that fall" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>{{ .Title }} — {{ .Site.Params.metatitle }}</title>
+	{{ with .Site.Params.description }}
+	<meta name="description" content="{{ . }}">
+	{{ end }}
+	{{ with .Site.Params.author }}
+	<meta name="author" content="{{ . }}">
+	{{ end }}
+	
+	<link rel="stylesheet" href="{{ "css/style.css"   | relURL }}?{{now.Unix}}">
+	<link rel="stylesheet" href="{{ "css/simple-lightbox.min.css"  | relURL }}">
+	{{ with .OutputFormats.Get "RSS" -}}
+	{{ printf `
+	<link rel="%s" type="%s" href="%s" title="%s">` .Rel .MediaType.Type .RelPermalink $.Site.Title | safeHTML }}
+	{{- end }}
+	<script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+	<meta name="facebook-domain-verification" content="x47pldimecews3wtz3ipek4q5n6a4a" />
+
+</head>
+
+<body>
+	{{ partial "header" . }}
+	
+	{{ block "main" . }}{{ end }}
+	{{ partial "footer" . }}
+</body>
+<script>
+	if (window.netlifyIdentity) {
+		window.netlifyIdentity.on('init', (user) => {
+			if (!user) {
+				window.netlifyIdentity.on('login', () => {
+					document.location.href = '/admin/';
+				});
+			}
+		});
+	}
+</script>
+
+<script src="{{ "js/simple-lightbox.min.js" | relURL }}"></script>
+<script src="{{ "js/script.js"   | relURL }}?{{now.Unix}}" ></script>
+
+</html>

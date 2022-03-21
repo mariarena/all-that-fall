@@ -1,0 +1,84 @@
+<div class="menu-column">
+    <div class="offerta-formativa-box ">
+        {{ with .Site.GetPage "/offerta-formativa/corsi-21-23.md" }}
+        <span class="type-box">
+            {{.Type | humanize | lower }}
+        </span>
+        <div class="inner-menu-column">
+            <a href="{{ .RelPermalink }}">
+            <h2 class="offerta-formativa-title">
+                {{ .Title }}
+            </h2>
+            <span class="offerta-formativa-subtitle">
+                {{.Params.Subtitle}}
+            </span>
+            </a>
+        </div>
+        {{ end }}
+    </div>
+    <div class="ag center-logo">
+        <a href="{{.Site.Home.Permalink}}">
+
+            <img class="mainlogo" src="{{ "/logo.svg" |relURL}}" />
+        </a>
+        <br>
+        <strong class="cta">iscriviti</strong>
+    </div>
+    <nav class="main-menu">
+        <div class="f-1 d-f-col t-a-cnt h-100">
+            <div class="f-1 p-rel"><span class="down-arrow">&#8595;</span></div>
+            <div class="f-1"><a target="_blank" href="{{.Site.Data.offertaformativa.modulopdf.file}}"><strong>{{.Site.Data.offertaformativa.modulopdf.title}}</strong></a></div>
+            
+            
+        </div>
+        <div class="f-1 d-f-col t-a-cnt h-100">
+        <div class="f-1 p-rel"><span class="down-arrow">&#8595;</span></div>
+            
+            
+            
+           <!-- <div class="f-1"><a href="mailto:{{.Site.Data.offertaformativa.modulopdf.mail}}"><strong>{{.Site.Data.offertaformativa.modulopdf.mail}}</strong></a></div>-->
+           <div class="f-1"><a  href="{{ with .Site.GetPage "/contatti.md" }}{{.Permalink}}{{end}}"><strong>candidati online</strong></a></div>
+            
+        </div>
+    </nav>
+    <div class="f-1 d-f partners">
+        <div class="f-1">
+            <img src="{{ "/agrits.png" |relURL}}" />
+        </div>
+        <div class="f-1">
+            <img src="{{ "/eu_flag.jpg" |relURL}}" />
+        </div>
+        <div class="f-1">
+            <img src="{{ "/miur.png" |relURL}}" />
+        </div>
+        <div class="f-1">
+            <img src="{{ "/sistemaits.png" |relURL}}" />
+        </div>
+        <div class="f-1">
+            <img src="{{ "/regioneabruzzo.jpeg" |relURL}}" />
+        </div>
+    </div>
+    <div class="footer-box">
+        <div class="f-1 t-a-cnt">
+            <img class="its-logo" src="{{"/its-logo.png" |relURL}}" />
+        </div>
+        <div class="f-1">
+            info@itsteramo.it<br>
+            Fondazione Istituto Tecnico Superiore<br>
+            Nuove Tecnologie per il "Made in Italy"<br>
+            Sistema Agroalimentare di Teramo<br>
+            Via A. De Benedictis, 1 - 64100 Teramo, Italy
+        </div>
+    </div>
+    <div class="credits">
+        <div class="f-1">
+
+        </div>
+        <div class="f-1">
+            <p>
+                   design: <a href="https://www.muschielicheni.net/" target="_blank">muschi&licheni</a><br/>
+                   sviluppo: <a href="http://portfolio.michelangeloalesi.it/" target="_blank">Michelangelo Alesi</a>
+             </p>     
+        </div>
+    </div>
+</div>

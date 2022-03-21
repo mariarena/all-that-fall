@@ -1,0 +1,144 @@
+backend:
+  name: git-gateway
+  branch: main # Branch to update (optional; defaults to master)
+
+local_backend: true
+
+logo_url: https://www.itsagroalimentarete.it/templates/it/its/images/logo.png
+locale: 'it'
+
+# These lines should *not* be indented
+media_folder: "static/images/uploads" # Media files will be stored in the repo under static/images/uploads
+public_folder: "/images/uploads" # The src attribute for uploaded media will begin with /images/uploads
+
+collections:
+  - name: "storie" # Used in routes, e.g., /admin/collections/blog
+    label: "Storie" # Used in the UI
+    folder: "/content/storie" # The path to the folder where the documents are stored
+    create: true # Allow users to create new documents in this collection
+    slug: "{{slug}}" # Filename template, e.g., YYYY-MM-DD-title.md
+    fields: # The fields for each document, usually in front matter
+      - { label: "Title", name: "title", widget: "string" }
+      - { label: "Publish Date", name: "date", widget: "datetime" }
+      - {label: "Colonna", name: "colonna", widget: "select", options : [{ label: "Colonna Sinistra", value: "sinistra" },{ label: "Colonna Destra", value: "destra" }] }
+      - {label: "In Evidenza", name: "evidenza", widget: "boolean", default: false, required: false}
+      - { label: "Immagine di copertina", name: "cover", widget: "image" }
+      - { label: "Sottotitolo", name: "subtitle", widget: "string" }
+      - { label: "Link per Video", name: "videourl", widget: "string"}
+      - { label: "Body", name: "body", widget: "markdown" }
+  
+  - name: "immagine" # Used in routes, e.g., /admin/collections/blog
+    label: "Immagini" # Used in the UI
+    folder: "/content/immagini" # The path to the folder where the documents are stored
+    create: true # Allow users to create new documents in this collection
+    slug: "{{slug}}" # Filename template, e.g., YYYY-MM-DD-title.md
+    fields: # The fields for each document, usually in front matter
+      - { label: "Title", name: "title", widget: "string" }
+      - { label: "Publish Date", name: "date", widget: "datetime" }
+      - {label: "Colonna", name: "colonna", widget: "select", options : [{ label: "Colonna Sinistra", value: "sinistra" },{ label: "Colonna Destra", value: "destra" }] }
+      - { label: "Immagine", name: "cover", widget: "image" }
+
+  - name: "scopri" # Used in routes, e.g., /admin/collections/blog
+    label: "Scopri (offerta formativa)" # Used in the UI
+    folder: "/content/scopri" # The path to the folder where the documents are stored
+    create: true # Allow users to create new documents in this collection
+    slug: "{{slug}}" # Filename template, e.g., YYYY-MM-DD-title.md
+    fields: # The fields for each document, usually in front matter
+      - { label: "Title", name: "title", widget: "string" }
+      - { label: "Publish Date", name: "date", widget: "datetime" }
+      - {label: "Colonna", name: "colonna", widget: "select", options : [{ label: "Colonna Sinistra", value: "sinistra" },{ label: "Colonna Destra", value: "destra" }] }
+      - {label: "In Evidenza", name: "evidenza", widget: "boolean", default: false, required: false}
+      - { label: "Sottotitolo", name: "subtitle", widget: "string" }
+      - { label: "Body", name: "body", widget: "markdown" }
+      - {label: "Correlati", name: "correlati", widget: "relation", collection: "scopri", search_fields: ["title"], value_field: "/scopri/{{slug}}", display_fields: ["title"], multiple: true, required: false}
+
+  - name: "notizie" # Used in routes, e.g., /admin/collections/blog
+    label: "Notizie" # Used in the UI
+    folder: "/content/notizie" # The path to the folder where the documents are stored
+    create: true # Allow users to create new documents in this collection
+    slug: "{{slug}}" # Filename template, e.g., YYYY-MM-DD-title.md
+    fields: # The fields for each document, usually in front matter
+      - { label: "Title", name: "title", widget: "string" }
+      - { label: "Tag", name: "tag", widget: "string" }
+      - { label: "Publish Date", name: "date", widget: "datetime" }
+      - {label: "Colonna", name: "colonna", widget: "select", options : [{ label: "Colonna Sinistra", value: "sinistra" },{ label: "Colonna Destra", value: "destra" }] }
+      - {label: "In Evidenza", name: "evidenza", widget: "boolean", default: false, required: false}
+      - { label: "Riassunto", name: "excerpt", widget: "text" }
+      - { label: "Sottotitolo", name: "subtitle", widget: "string",required: false }
+      - { label: "Body", name: "body", widget: "markdown" }
+  
+  - name: "informazioni" # Used in routes, e.g., /admin/collections/blog
+    label: "Informazioni (box senza contenuto)" # Used in the UI
+    folder: "/content/informazioni" # The path to the folder where the documents are stored
+    create: true # Allow users to create new documents in this collection
+    slug: "{{slug}}" # Filename template, e.g., YYYY-MM-DD-title.md
+    fields: # The fields for each document, usually in front matter
+      - { label: "Title", name: "title", widget: "string" }
+      - { label: "Tag", name: "tag", widget: "string" }
+      - { label: "Publish Date", name: "date", widget: "datetime" }
+      - {label: "Colonna", name: "colonna", widget: "select", options : [{ label: "Colonna Sinistra", value: "sinistra" },{ label: "Colonna Destra", value: "destra" }] }
+      - { label: "Sottotitolo", name: "subtitle", widget: "string",required: false }
+  
+  - name: "progetti" # Used in routes, e.g., /admin/collections/blog
+    label: "Progetti " # Used in the UI
+    folder: "/content/progetti" # The path to the folder where the documents are stored
+    create: true # Allow users to create new documents in this collection
+    slug: "{{slug}}" # Filename template, e.g., YYYY-MM-DD-title.md
+    fields: # The fields for each document, usually in front matter
+      - { label: "Title", name: "title", widget: "string" }
+      - { label: "Publish Date", name: "date", widget: "datetime" }
+      - {label: "Colonna", name: "colonna", widget: "select", options : [{ label: "Colonna Sinistra", value: "sinistra" },{ label: "Colonna Destra", value: "destra" }] }
+      - { label: "Sottotitolo", name: "subtitle", widget: "string",required: false }
+      - { label: "Body", name: "body", widget: "markdown" }
+  
+  - name: "testimonianze" # Used in routes, e.g., /admin/collections/blog
+    label: "Testimonianze" # Used in the UI
+    folder: "/content/testimonianze" # The path to the folder where the documents are stored
+    create: true # Allow users to create new documents in this collection
+    slug: "{{slug}}" # Filename template, e.g., YYYY-MM-DD-title.md
+    fields: # The fields for each document, usually in front matter
+      - { label: "Title", name: "title", widget: "string" }
+      - { label: "Publish Date", name: "date", widget: "datetime" }
+      - {label: "Colonna", name: "colonna", widget: "select", options : [{ label: "Colonna Sinistra", value: "sinistra" },{ label: "Colonna Destra", value: "destra" }] }
+      - {label: "In Evidenza", name: "evidenza", widget: "boolean", default: false, required: false}
+      - { label: "Riassunto", name: "excerpt", widget: "text" }
+      - { label: "Sottotitolo", name: "subtitle", widget: "string" }
+      - { label: "Body", name: "body", widget: "markdown" }
+      
+
+      
+  - label: "Offerta Formativa (file di dati, contenuto header, file di testimonianze complete)"
+    name: "offerta-formativa"
+    files:
+      - label: "Corsi 21/23"
+        name: "corsi-21-23"
+        file: "content/offerta-formativa/corsi-21-23.md"
+        fields:
+          - { label: "Title", name: "title", widget: "string" }
+          - { label: "Publish Date", name: "date", widget: "datetime" }
+          - { label: "Sottotitolo", name: "subtitle", widget: "string" }
+          - { label: "Body", name: "body", widget: "markdown" }
+          - {label: "Correlati", name: "correlati", widget: "relation", collection: "scopri", search_fields: ["title"], value_field: "/scopri/{{slug}}", display_fields: ["title"], multiple: true, required: false}
+
+      - label: "Modulo PDF"
+        name: "modulo-pdf"
+        file: "/data/offertaformativa/modulopdf.toml"
+        fields:
+          - {label: Title, name: title, widget: string}
+          - {label: File, name: file, widget: file}
+          - {label: Email, name: mail, widget: string}
+      - label: "Scadenza Iscrizioni"
+        name: "scadenza"
+        file: "/data/offertaformativa/scadenza.toml"
+        fields:
+          - {label: Title, name: title, widget: string}
+          - {label: Tag, name: tag, widget: string}
+          - {label: Data, name: date, widget: datetime}
+      - label: "Testimonianze"
+        name: "testimonianze"
+        file: "content/offerta-formativa/testimonianze.md"
+        fields:
+          - { label: "Title", name: "title", widget: "string" }
+          - { label: "Publish Date", name: "date", widget: "datetime" }
+          - { label: "Sottotitolo", name: "subtitle", widget: "string" }
+          - { label: "Body", name: "body", widget: "markdown" }

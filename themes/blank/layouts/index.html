@@ -1,0 +1,85 @@
+{{ define "main" }}
+{{ partial "header_form" . }}
+<main class="home-template homepage">
+	<div class="left-column col fake_class again " >
+		<div id="left_first">
+			{{ range  (where .Site.Pages "Params.colonna" "sinistra") }}
+			{{partial "conditional/conditional.html" .}}
+		{{ end }}
+		</div>
+		<span class="helper-arrow">&#8595;</span>
+	</div>
+	
+	<div class="center-column col">
+		{{ partial "menu-column.html" .}}
+	</div>
+	<div class="right-column col ">
+		{{$id := ""}}
+		{{ range first 1  ( where (where .Site.Pages "Params.colonna" "destra" ) "Params.evidenza" "==" true )}}
+			{{$id = .Permalink}}
+			{{partial "conditional/conditional.html" .}}
+		{{end}}
+
+
+		<div id="right_two">
+					{{ range first 1  ( where (where .Site.Pages "Params.colonna" "destra") "Permalink" "!=" $id )}}
+						{{partial "conditional/conditional.html" .}}
+					{{ end }}
+
+				{{ range first 1 ( after 2 ( where (where .Site.Pages "Params.colonna" "destra") "Permalink" "!=" $id ) )}}
+					{{partial "conditional/conditional.html" .}}
+				{{ end }}
+
+					{{ range first 1 (after 1 ( where (where .Site.Pages "Params.colonna" "destra") "Permalink" "!=" $id ))}}
+						{{partial "conditional/conditional.html" .}}
+					{{ end }}
+				<div class="default-box" style="padding:1rem">
+						<span class="type-box">
+							{{.Site.Data.offertaformativa.scadenza.tag}}
+						</span>
+						<div class="inner" style="height: 90%;">
+							<data id="scadenza-date">{{.Site.Data.offertaformativa.scadenza.date}}</data>
+							<div id="countdown_two" class="default-title"></div>
+							<span class="countdown-subtitle">{{.Site.Data.offertaformativa.scadenza.title}}</span> 
+						</div>
+				</div>
+				<script>
+					var enddate = document.querySelector("#scadenza-date").innerText
+					enddate = enddate.substring(0,10)
+					var end = new Date(enddate).getTime();
+						var _second = 1000;
+						var _minute = _second * 60;
+						var _hour = _minute * 60;
+						var _day = _hour * 24;
+						var timer;
+					
+						function showRemaining() {
+							var now = new Date().getTime();
+							var distance = end - now;
+							if (distance < 0) {
+					
+								clearInterval(timer);
+								document.getElementById('countdown_two').innerHTML = 'Iscrizioni concluse';
+					
+								return;
+							}
+							var days = Math.floor(distance / _day);
+							document.getElementById('countdown_two').innerHTML ="-" + days + '<br>giorni ';
+							
+						}
+						showRemaining();
+						timer = setInterval(showRemaining, 60000);
+					</script>
+					
+	
+			{{ range  (after 3 ( where (where .Site.Pages "Params.colonna" "destra") "Permalink" "!=" $id ) )}}
+				{{partial "conditional/conditional.html" .}}
+			{{ end }}
+		</div>
+
+
+		
+		<span class="helper-arrow">&#8595;</span>
+	</div>
+</main>
+{{ end }}

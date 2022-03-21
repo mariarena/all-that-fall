@@ -1,0 +1,12 @@
+baseurl = "/"
+RelativeURLs=true
+CanonifyURLs=true
+
+languageCode = "it"
+title = "All that fall"
+theme = "blank"
+disableKinds= ["section","taxonomy"]
+ignoreErrors = ["error-disable-taxonomy"]
+
+[params]
+    metatitle = "All that fall"
