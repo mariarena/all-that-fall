@@ -1,10 +1,37 @@
 ---
 date: 2022-03-21T20:22:28.603Z
 ---
-Posate lucenti su una candida tovaglia, adagiate al loro posto da mani sicure.\
-Tutto intorno il resto precipita, cadenzato dalla ronzante voce canzonatoria di una volontà\
-intangibile. Ogni barlume è una copia, ogni tintinnio è una distrazione.\
-In una cornice di minuterie replicabili e triviali, cosa resta del perpetuo fervore?
+ALL THAT FALL
+
+Una produzione dell'Accademia di Belle Arti di Urbino\
+TeatrOltre 2022\
+Progetto scene, costumi, luci, video e audio\
+Scuola di Scenografia\
+Spettacolo allestito in collaborazione con il Comune di Urbino
+
+.
+
+Drammaturgia di Maria Arena\
+Drammaturgia Video di Emanuele Rebecchini
+
+.
+
+Date e orario spettacoli
+
+Teatro Raffaello Sanzio, Urbino\
+14 maggio sabato ore 17:30, ore 21:00\
+15 maggio domenica ore 17:30.
+
+biglietto cortesia €3
+
+
+PREVENDITE presso punti vendita Vivaticket e biglietterie dei Teatri del circuito AMAT
+
+
+ONLINE https://www.vivaticket.com/it/biglietto/all-that-fall/177017
+
+
+e presso la BIGLIETTERIA TEATRO SANZIO URBINO
 
 .
 
@@ -14,11 +41,7 @@ dall'estrema fragilità della realtà infettata. Seconda parte che tratta del ca
 spazio vuoto, forse un teatro, un cameriere si occupa di provare a rimettere in ordine le cose in\
 sola compagnia o assillo di un esuberante cam girl. Un aspetto comune di molti spettacoli\
 realizzati dalla scuola di scenografia è il rapporto che esiste tra la “machina” scenica e\
-spettatore. Un crash test impegnativo per tutti.
-
-.
-
-Più che inseguire il coinvolgimento della\
+spettatore. Un crash test impegnativo per tutti. Più che inseguire il coinvolgimento della\
 partecipazione, questa ricerca ha assunto nel tempo il compito di misurare con attenzione\
 l’avvenimento inatteso che interrompe il corso regolare di un’azione. Mai come in questo\
 periodo i teatri sono finiti in televisione. Indipendentemente dall’opera che veniva messa in\
@@ -30,30 +53,27 @@ dentro il teatro della città ideale. È la prima volta che accade qui a Urbino.
 
 .
 
-Accademia di Belle Arti. Urbino\
-TeatrOltre 2022\
-Progetto scene, costumi, luci, video e audio\
-scuola di Scenografia\
-Spettacolo allestito in collaborazione con il Comune di Urbino
+**CONTATTI:**
 
-.
+AMAT 0712072439
 
-Drammaturgia di Maria Arena\
-Drammaturgia Video Emanuele Rebecchini
+Servizio Cultura e Turismo 0722 309602
 
-.
+Info Point Borgo Mercatale 0722 378205
 
-Date e orario spettacoli\
-14 maggio sabato ore 17:30, ore 21:00\
-15 maggio domenica ore 17:30.
+IAT via Puccinotti n. 35 0722 2613
 
-.
+
 
 <https://www.amatmarche.net/>
 
 .
 
-<http://www.comune.urbino.pu.it/>
+[http://www.comune.urbino.pu.it](http://www.comune.urbino.pu.it/)
+
+.
+
+[www.vieniaurbino.it](www.vieniaurbino.it)
 
 .
 
